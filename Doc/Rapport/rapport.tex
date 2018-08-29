@@ -1,0 +1,184 @@
+\documentclass[a4paper]{report}
+
+%====================== PACKAGES ======================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+%pour gérer les positionnement d'images
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}
+%pour les informations sur un document compilé en PDF et les liens externes / internes
+\usepackage{hyperref}
+%pour la mise en page des tableaux
+\usepackage{array}
+\usepackage{tabularx}
+%pour utiliser \floatbarrier
+%\usepackage{placeins}
+%\usepackage{floatrow}
+%espacement entre les lignes
+\usepackage{setspace}
+%modifier la mise en page de l'abstract
+\usepackage{abstract}
+%police et mise en page (marges) du document
+\usepackage[T1]{fontenc}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+%Pour les galerie d'images
+\usepackage{subfig}
+\usepackage{color}
+\usepackage{array}
+%pour les fonctions mathématiques et graphiques
+\usepackage{gastex}
+%\usepackage[dvips]{graphics}
+\usepackage{pstricks}
+\usepackage{a4wide}
+\usepackage{multicol}
+\usepackage{pst-tree}
+\usepackage{tikz-qtree}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{ent}=[circle,draw,thick,inner sep=0pt,minimum size=2.5mm]
+\usetikzlibrary{arrows,automata,positioning}
+\usetikzlibrary{automata,patterns,topaths,shapes,calc}
+\tikzstyle{every picture}+=[>=stealth',initial text=]
+\tikzstyle{state}=[rectangle,draw=black]
+%liste de toutes les macros pour équations
+\definecolor{OliveGreen}{rgb}{0,0.6,0}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Bo}{\mathbb{B}}
+
+\newcommand{\Au}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\Hr}{\mathcal{H}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Net}{\mathcal{N}}
+\newcommand{\Pa}{\mathcal{P}}
+\newcommand{\Rel}{\mathcal{R}}
+\newcommand{\Sy}{\mathcal{S}}
+\newcommand{\Ts}{\mathcal{T}}
+\newcommand{\X}{\mathcal{X}}
+
+\newcommand{\rel}{\bowtie}
+\newcommand{\tr}{\xrightarrow}
+\newcommand{\opeq}{\leftrightarrow}
+\newcommand{\fee}{\varphi}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\fut}{\overrightarrow}
+\newcommand\sui[1][a]{\ensuremath{\left(#1_n\right)_{n\in \N}}}
+
+\newcommand{\E}{\textsf{E}}
+\newcommand{\A}{\textsf{A}}
+
+\DeclareMathOperator{\cla}{cl}
+
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Théorème}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newtheorem{definition}[theorem]{Définition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{example}[theorem]{Exemple}
+
+%====================== INFORMATION ET REGLES ======================
+
+%rajouter les numérotation pour les \paragraphe et \subparagraphe
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\hypersetup{							% Information sur le document
+pdfauthor = {Premier Auteur,
+			Deuxième Auteur,
+			Troisième Auteur,
+    		Quatrième Auteur},			% Auteurs
+pdftitle = {Nom du Projet -
+			Sujet du Projet},			% Titre du document
+pdfsubject = {Mémoire de Projet},		% Sujet
+pdfkeywords = {Tag1, Tag2, Tag3, ...},	% Mots-clefs
+pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
+%pdfcreator = {MikTeX},% Logiciel qui a crée le document
+%pdfproducer = {}} % Société avec produit le logiciel
+
+%======================== DEBUT DU DOCUMENT ========================
+
+\begin{document}
+
+%régler l'espacement entre les lignes
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%page de garde
+\input{./title.tex}
+
+%page blanche
+\newpage
+~
+%ne pas numéroter cette page
+\thispagestyle{empty}
+\newpage
+
+\input{./abstract.tex}
+
+\tableofcontents
+\thispagestyle{empty}
+\setcounter{page}{0}
+%ne pas numéroter le sommaire
+
+\newpage
+
+%espacement entre les lignes d'un tableau
+\renewcommand{\arraystretch}{1.5}
+
+%====================== INCLUSION DES PARTIES ======================
+
+~
+\thispagestyle{empty}
+%recommencer la numérotation des pages à "1"
+\setcounter{page}{0}
+\newpage
+
+\input{./presentation.tex}
+
+\input{./existant.tex}
+ 
+\input{./besoins.tex}
+
+\input{./autre_partie.tex}
+
+\input{./resultats.tex}
+
+\input{./bilan.tex}
+
+\input{./annexes.tex}
+
+\newpage
+
+%récupérer les citation avec "/footnotemark"
+\nocite{*}
+
+%choix du style de la biblio
+\bibliographystyle{plain}
+%inclusion de la biblio
+\bibliography{bibliographie.bib}
+%voir wiki pour plus d'information sur la syntaxe des entrées d'une bibliographie
+
+\end{document}

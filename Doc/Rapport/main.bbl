@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{Grammatica}
+{Grammatica} documentation.
+\newblock \url{http://grammatica.percederberg.net/}.
+\newblock Accessed: 2016-04-26.
+
+\bibitem{IronPython}
+{IronPython} documentation.
+\newblock \url{http://ironpython.netl}.
+\newblock Accessed: 2016-04-26.
+
+\bibitem{Microsoft}
+{MSDN} csharp documentation.
+\newblock \url{https://msdn.microsoft.com/fr-fr/library/67ef8sbd.aspxl}.
+\newblock Accessed: 2016-04-26.
+
+\bibitem{3Dreference}
+{Unity 5 Asset Store} 3d material et références.
+\newblock \url{https://www.assetstore.unity3d.com l}.
+\newblock Accessed: 2016-04-26.
+
+\bibitem{Unity5Manuel}
+{Unity 5 Documentation} manuel.
+\newblock \url{http://docs.unity3d.com/Manual/index.html}.
+\newblock Accessed: 2016-04-26.
+
+\bibitem{Unity5Script}
+{Unity 5 Documentation} script manuel.
+\newblock \url{http://docs.unity3d.com/ScriptReference/index.html}.
+\newblock Accessed: 2016-04-26.
+
+\bibitem{Unity5Communauté}
+{Unity 5 Forum} forum et communauté unity.
+\newblock \url{http://unity3d.com/community}.
+\newblock Accessed: 2016-04-26.
+
+\end{thebibliography}

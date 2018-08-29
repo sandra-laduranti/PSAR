@@ -1,0 +1,112 @@
+﻿/*
+ * grammar.grammar
+ * 
+ * Grammaire pour la logique du premier ordre
+ *
+ */
+
+%header%
+
+GRAMMARTYPE = "LL"
+
+DESCRIPTION = "Grammaire pour la logique du premier ordre"
+
+
+/** Tokens **/
+%tokens%
+
+WHITESPACE 		= <<[ \t\n\r]+>> %ignore%
+LEFT_PAREN 		= "("
+RIGHT_PAREN 		= ")" 
+COMMA			= "," 
+
+NOT			= "¬"
+AND 			= "∧"
+OR 			= "∨"
+IMPLY 			= "⇒"
+FORALL 			= "∀"
+EXISTS 			= "∃"
+
+CSTE 			= <<[a-t]>>
+VAR 			= <<[v-z]>>
+
+/* Predicat */
+ROSE			= "Rose"
+PAQUERETTE 		= "Paquerette"
+TULIPE 			= "Tulipe"
+EST_GRAND		= "est_grand"
+EST_MOYEN		= "est_moyen"
+EST_PETIT		= "est_petit"
+EST_ROUGE 		= "est_rouge"
+EST_ROSE		= "est_rose"
+EST_BLANC		= "est_blanc"
+A_L_EST			= "a_l_est"
+A_L_OUEST		= "a_l_ouest"
+AU_SUD			= "au_sud"
+AU_NORD			= "au_nord"
+
+
+A_L_EST_DE		= "a_l_est_de"
+A_L_OUEST_DE		= "a_l_ouest_de"
+AU_SUD_DE		= "au_sud_de"
+AU_NORD_DE		= "au_nord_de"
+MEME_LATITUDE		= "meme_latitude"
+MEME_LONGITUDE		= "meme_longitude"
+PLUS_GRAND_QUE		= "plus_grand_que"
+PLUS_PETIT_QUE		= "plus_petit_que"
+MEME_TAILLE_QUE		= "meme_taille_que"
+MEME_COULEUR_QUE 	= "meme_couleur_que"
+EGAL			= "egal"
+
+EST_ENTRE		= "est_entre"
+
+
+/** Production **/
+%productions%
+
+FORMULE = NOT FORMULE
+		| FORALL VAR FORMULE
+		| EXISTS VAR FORMULE
+		| PREDICAT FORMULE_PRED*
+		| "(" FORMULE FORMULE_BIN ;
+		  
+FORMULE_PRED = AND FORMULE
+			 | OR FORMULE
+			 | IMPLY FORMULE ;
+		  
+FORMULE_BIN = AND FORMULE ")"
+			| OR FORMULE ")"
+			| IMPLY FORMULE ")"
+			| ")" ;
+
+ATOM = CSTE | VAR ;
+
+PREDICAT = PRED1 | PRED2 | PRED3 ;
+
+PRED1 = ROSE "(" ATOM ")"
+		| PAQUERETTE "(" ATOM ")"
+		| TULIPE "(" ATOM ")"
+		| EST_GRAND "(" ATOM ")"
+		| EST_MOYEN "(" ATOM ")"
+		| EST_PETIT "(" ATOM ")"
+		| EST_ROUGE "(" ATOM ")"
+		| EST_ROSE "(" ATOM ")"
+		| EST_BLANC "(" ATOM ")"
+		| A_L_EST "(" ATOM ")"
+		| A_L_OUEST "(" ATOM ")"
+		| AU_SUD "(" ATOM ")"
+		| AU_NORD "(" ATOM ")" ;
+		
+PRED2 = A_L_EST_DE "(" ATOM "," ATOM ")"
+		| A_L_OUEST_DE "(" ATOM "," ATOM ")"
+		| AU_SUD_DE "(" ATOM "," ATOM ")"
+		| AU_NORD_DE "(" ATOM "," ATOM ")"
+		| MEME_LONGITUDE "(" ATOM "," ATOM ")"
+		| MEME_LATITUDE "(" ATOM "," ATOM ")"
+		| PLUS_GRAND_QUE "(" ATOM "," ATOM ")"
+		| PLUS_PETIT_QUE "(" ATOM "," ATOM ")"
+		| MEME_TAILLE_QUE "(" ATOM "," ATOM ")"
+		| MEME_COULEUR_QUE "(" ATOM "," ATOM ")"
+		| EGAL "(" ATOM "," ATOM ")" ;
+		
+PRED3 = EST_ENTRE "(" ATOM "," ATOM "," ATOM ")" ;

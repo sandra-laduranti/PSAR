@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Architecture g\IeC {\'e}n\IeC {\'e}rale}{3}{0}{1}
+\beamer@sectionintoc {2}{Exemple : Traitement d'une formule (1)}{4}{0}{2}
+\beamer@sectionintoc {3}{Exemple : Traitement d'une formule (2)}{5}{0}{3}
+\beamer@sectionintoc {4}{Objectifs pour les prochaines semaines}{6}{0}{4}
